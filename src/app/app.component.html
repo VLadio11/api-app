@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  </div>
+  <input type="text" [(ngModel)]="value">
+  <button (click)="setSymbol()">Submit</button>
+
+<app-sto-data *ngIf="flag"></app-sto-data>
+<div *ngIf="errorFlag">
+  <p>{{error}}</p>
+</div>
+  

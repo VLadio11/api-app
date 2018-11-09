@@ -1,0 +1,13 @@
+<div>
+    <p>Name: {{name}}</p>
+    <p>Symbol: {{symbol}}</p>
+    <p>Average Total Volume: {{averageVol}}   Day Volume: {{dayVolume}} </p>
+    <p>IEX Real Time Price: {{realtimePrice}}</p>
+    <p>Open: {{open}}   Low: {{low}}  High: {{high}}  Close: {{close}}</p>
+    <ul>
+      <li *ngFor="let article of stockData">
+        {{article}}
+      </li>
+
+    </ul>
+</div>
