@@ -30,10 +30,9 @@ export class StoDataComponent implements OnInit {
   constructor(private stockDats: StockApiService){}
 
   getData():void{
-    console.log("Yayya");
+    this.stockData = [];
     this.stockDats.stockData.subscribe(
      data =>{
-       console.log("In the data handler");
          this.name=data.companyName;
          this.averageVol=data.avgTotalVolume;
          this.open = data.open;
@@ -54,6 +53,7 @@ export class StoDataComponent implements OnInit {
   getNews(){
     this.stockDats.stockNews.subscribe(
      data => {
+       this.stockData = [];
        for(let i of data){
        this.stockData.push(i.headline);
        };

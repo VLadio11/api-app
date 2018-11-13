@@ -17,6 +17,7 @@ export class AppComponent {
  
   errorFlag=false;
   setSymbol(){
+    this.value.toUpperCase();
     this.input = this.value;
     this.errorFlag=false;
     this.flag=true;
