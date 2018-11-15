@@ -7,7 +7,11 @@
   <input type="text" [(ngModel)]="value">
   <button (click)="setSymbol()">Submit</button>
 
-<app-sto-data *ngIf="flag"></app-sto-data>
 <div *ngIf="errorFlag">
   <p>{{error}}</p>
 </div>
+
+<div fxLayout="row wrap" fxLayoutGap="10%" fxLayoutAlign="start">
+    <app-sto-data *ngIf="flag" fxFlex="25"></app-sto-data> 
+    <app-chart *ngIf="flag" fxFlex="60"></app-chart>
+  </div>

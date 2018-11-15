@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { registerContentQuery } from '@angular/core/src/render3/instructions';
 import {StockApiService} from '../stock-api.service';
+import {GridOptions} from 'ag-grid-community';
+import {ChartComponent} from './chart/chart.component';
 
 
 @Component({
@@ -13,6 +15,7 @@ export class AppComponent {
   value ='';
   input ='';
   flag =false;
+  private gridOptions: GridOptions;
   constructor(private http: HttpClient, private stockDats: StockApiService){}
  
   errorFlag=false;

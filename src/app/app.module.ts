@@ -6,19 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { StoDataComponent } from './sto-data/sto-data.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
- 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoDataComponent,
-    ChartComponent
+    ChartComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    FlexLayoutModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

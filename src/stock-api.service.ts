@@ -26,7 +26,7 @@ export class StockApiService {
     });
   }  
   getChartData(symbol){
-    this.http.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/5y`).subscribe((data:any) =>{
+    this.http.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/2y`).subscribe((data:any) =>{
       this.stockChartSubject.next(data);
     });
   }
