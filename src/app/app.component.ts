@@ -20,11 +20,11 @@ export class AppComponent {
  
   errorFlag=false;
   setSymbol(){
-    this.value.toUpperCase();
+    this.value = this.value.toUpperCase();
     this.input = this.value;
-    this.errorFlag=false;
-    this.flag=true;
-    this.stockDats.loadData(this.input);
+    // this.errorFlag=false;
+    // this.flag=true;
+    // this.stockDats.loadData(this.input);
   };
   ngOnInit(){}
 

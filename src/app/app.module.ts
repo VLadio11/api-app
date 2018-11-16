@@ -9,6 +9,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CardComponent } from './card/card.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,6 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     ChartsModule,
     FlexLayoutModule
-  
   ],
   providers: [],
   bootstrap: [AppComponent]
