@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StockApiService } from 'src/stock-api.service';
-
+import { Subscription} from 'rxjs';
 @Component({
   selector: 'app-sto-data',
   templateUrl: './sto-data.component.html',
   styleUrls: ['./sto-data.component.css']
 })
-export class StoDataComponent implements OnInit {
+export class StoDataComponent implements OnInit, OnDestroy {
 
   name = "";
   averageVol = 0;
@@ -49,9 +49,9 @@ export class StoDataComponent implements OnInit {
  
     )
   }
-
+  stockNewsSubscription: Subscription = null;
   getNews(){
-    this.stockDats.stockNews.subscribe(
+    this.stockNewsSubscription = this.stockDats.stockNews.subscribe(
      data => {
        this.stockData = [];
        for(let i of data){
@@ -62,4 +62,7 @@ export class StoDataComponent implements OnInit {
    error => {this.error = "Incorrect.. Enter a correct value" }
    )
   };
+  ngOnDestroy(){
+    this.stockNewsSubscription.unsubscribe();
+  }
 }

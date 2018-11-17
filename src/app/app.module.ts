@@ -7,7 +7,8 @@ import { StoDataComponent } from './sto-data/sto-data.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CardComponent } from './card/card.component';
+import { ChartVolumeComponent } from './chart-volume/chart-volume.component';
+import { OhlcComponent } from './ohlc/ohlc.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CardComponent } from './card/card.component';
     AppComponent,
     StoDataComponent,
     ChartComponent,
-    CardComponent
+    ChartVolumeComponent,
+    OhlcComponent
   ],
   imports: [
     BrowserModule,

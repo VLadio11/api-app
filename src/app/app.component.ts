@@ -17,18 +17,16 @@ export class AppComponent {
   flag =false;
   private gridOptions: GridOptions;
   constructor(private http: HttpClient, private stockDats: StockApiService){}
- 
   errorFlag=false;
+
   setSymbol(){
     this.value = this.value.toUpperCase();
     this.input = this.value;
-    // this.errorFlag=false;
-    // this.flag=true;
-    // this.stockDats.loadData(this.input);
+    this.value = '';
+    this.errorFlag=false;
+    this.flag=true;
+    this.stockDats.loadData(this.input);
   };
   ngOnInit(){}
-
-
-
   title = 'api-app';
 }

@@ -56,6 +56,12 @@ describe('AppComponent', () => {
     
     expect(app.value).toEqual('AAPL');
     expect(app.input).toEqual(app.value);
+    expect(app.flag).toEqual(true);
+    expect(app.errorFlag).toEqual(false);
+  });
+
+  it('should call the hero service', ()=>{
+    
   });
   
 });

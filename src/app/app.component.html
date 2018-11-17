@@ -14,4 +14,9 @@
 <div fxLayout="row wrap" fxLayoutGap="10%" fxLayoutAlign="start">
     <app-sto-data *ngIf="flag" fxFlex="25"></app-sto-data> 
     <app-chart *ngIf="flag" fxFlex="60"></app-chart>
-  </div>
+</div>
+
+<div fxLayout="row" fxLayoutGap="10%">
+  <app-chart-volume *ngIf="flag" fxFlex="20" class="lauren"></app-chart-volume>
+  <app-ohlc *ngIf="flag" fxFlex="20"></app-ohlc>
+</div>
