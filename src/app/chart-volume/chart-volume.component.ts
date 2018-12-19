@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StockApiService } from 'src/stock-api.service';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-chart-volume',
@@ -21,12 +20,20 @@ export class ChartVolumeComponent implements OnInit {
   barChartType = 'line';
   barChartLegend = false;
   barChartData =  [
-    {data: ['1', '2'] , label: 'VWAP'},
+    {data: [this.latestVolume, '2'] , label: 'VWAP'},
   ];
+  setChart(){
+    this.barChartData =  [
+      {data: [this.latestVolume] , label: 'VWAP'},
+    ];
+  }
 
   getVolume(){
     this.htpp.stockData.subscribe(data=>{
-      data.latestVolume;
+      let latestVolume = data.latestVolume.toLocaleString();
+      this.latestVolume = parseInt(latestVolume);
+      console.log(this.latestVolume);
+      this.setChart();
     });
   }
 }

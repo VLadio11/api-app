@@ -8,6 +8,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CssSelector } from '@angular/compiler';
 import {By} from '@angular/platform-browser';
 import { adjustBlueprintForNewNode } from '@angular/core/src/render3/instructions';
+import { ChartVolumeComponent } from './chart-volume/chart-volume.component';
+import { OhlcComponent } from './ohlc/ohlc.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +17,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         StoDataComponent,
-        ChartComponent
+        ChartComponent,
+        ChartVolumeComponent,
+        OhlcComponent
       ],
       imports: [
         ChartsModule,
