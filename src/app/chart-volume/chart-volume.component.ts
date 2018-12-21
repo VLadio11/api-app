@@ -10,29 +10,29 @@ export class ChartVolumeComponent implements OnInit {
 
   constructor(private htpp: StockApiService) { }
   latestVolume = 0;
+  avgTotalVolume = 0;
 
   ngOnInit() {
     this.getVolume();
   }
 
   barChartOptions = { scaleShowVerticalLines: false, responsive:true};
-  barChartLabels = ["Column 1", "Column 2"];
-  barChartType = 'line';
+  barChartLabels = ["Late Volume", "Avg Volume"];
+  barChartType = 'bar';
   barChartLegend = false;
   barChartData =  [
-    {data: [this.latestVolume, '2'] , label: 'VWAP'},
+    {data: [this.latestVolume, this.avgTotalVolume] , label: ['Volume']},
   ];
   setChart(){
     this.barChartData =  [
-      {data: [this.latestVolume] , label: 'VWAP'},
+      {data: [this.latestVolume, this.avgTotalVolume] , label: ['Volume']},
     ];
   }
 
   getVolume(){
     this.htpp.stockData.subscribe(data=>{
-      let latestVolume = data.latestVolume.toLocaleString();
-      this.latestVolume = parseInt(latestVolume);
-      console.log(this.latestVolume);
+      this.latestVolume = data.latestVolume;
+      this.avgTotalVolume = data.avgTotalVolume;
       this.setChart();
     });
   }

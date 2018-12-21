@@ -11,7 +11,6 @@ import { ChartVolumeComponent } from './chart-volume/chart-volume.component';
 import { OhlcComponent } from './ohlc/ohlc.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +26,7 @@ import { OhlcComponent } from './ohlc/ohlc.component';
     ChartsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [ HttpClientModule],
   bootstrap: [AppComponent]
 })
 

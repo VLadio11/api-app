@@ -1,15 +1,18 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, getTestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { StoDataComponent } from './sto-data/sto-data.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CssSelector } from '@angular/compiler';
 import {By} from '@angular/platform-browser';
 import { adjustBlueprintForNewNode } from '@angular/core/src/render3/instructions';
 import { ChartVolumeComponent } from './chart-volume/chart-volume.component';
 import { OhlcComponent } from './ohlc/ohlc.component';
+import { inject } from '@angular/core';
+import { StockApiService } from 'src/stock-api.service';
+import { HttpParams } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -25,9 +28,16 @@ describe('AppComponent', () => {
         ChartsModule,
         FormsModule,
         HttpClientTestingModule
-      ]
+      ],
     }).compileComponents();
+    let injector: TestBed;
+    let service: StockApiService;
+    let httpMock: HttpTestingController;
+    injector = getTestBed();
+    service = injector.get(StockApiService);
+    httpMock = injector.get(HttpTestingController);
   }));
+
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -52,20 +62,16 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const app = fixture.debugElement.componentInstance as AppComponent;
-    app.value = "aapl";
+    app.value = "AAPL";
     
     const button = fixture.debugElement.query(By.css('button'));
     button.triggerEventHandler('click', null);
     fixture.detectChanges();
     
-    expect(app.value).toEqual('AAPL');
-    expect(app.input).toEqual(app.value);
-    expect(app.flag).toEqual(true);
+    expect(app.input).toEqual('AAPL');
+    expect(app.value).toEqual('');
     expect(app.errorFlag).toEqual(false);
-  });
-
-  it('should call the hero service', ()=>{
-    
+    expect(app.flag).toEqual(true);
   });
   
 });

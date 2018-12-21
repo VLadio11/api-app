@@ -1,25 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StoDataComponent } from './sto-data.component';
+import { StockApiService } from 'src/stock-api.service';
 
-describe('StoDataComponent', () => {
-  let component: StoDataComponent;
-  let fixture: ComponentFixture<StoDataComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StoDataComponent ]
-    })
-    .compileComponents();
-  }));
+// describe('StoDataComponent', () => {
+//   let component: StoDataComponent;
+//   let fixture: ComponentFixture<StoDataComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StoDataComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ StoDataComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(StoDataComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+ 
+//   });
+
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

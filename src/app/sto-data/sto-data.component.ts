@@ -57,7 +57,6 @@ export class StoDataComponent implements OnInit, OnDestroy {
        for(let i of data){
        this.stockData.push(i.headline);
        };
-       console.log(data);
     },
    error => {this.error = "Incorrect.. Enter a correct value" }
    )

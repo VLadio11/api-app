@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StockApiService } from 'src/stock-api.service';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnDestroy {
 
-
+  ngOnDestroy(){
+    this.stockNewsSubscription.unsubscribe();
+  };
   constructor(private stockService: StockApiService) { }
   open = [];
   low = [];
@@ -17,7 +19,7 @@ export class ChartComponent implements OnInit {
   label = [];
   close = [];
   vwap = [];
-  barChartOptions = { scaleShowVerticalLines: false, responsive:true};
+  barChartOptions = { scaleShowVerticalLines: false, responsive: true};
   barChartLabels = this.label;
   barChartType = 'line';
   barChartLegend = false;
@@ -46,11 +48,10 @@ export class ChartComponent implements OnInit {
     this.label.splice(0, this.label.length);
     this.vwap.splice(0, this.vwap.length);
   }
-
+  stockNewsSubscription: Subscription = null;
   getChartData(){
-    this.stockService.stockChart.subscribe(
+    this.stockNewsSubscription = this.stockService.stockChart.subscribe(
       data=>{
-        console.log(data);
         this.clearArrays();
         for (let i of data){     
           this.open.push(i.open),
@@ -61,7 +62,6 @@ export class ChartComponent implements OnInit {
           this.vwap.push(i.vwap);
           
         };
-        console.log(this.vwap)
         this.renderChart();
       }
     )
