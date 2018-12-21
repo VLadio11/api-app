@@ -19,6 +19,9 @@ export class ChartComponent implements OnInit, OnDestroy {
   label = [];
   close = [];
   vwap = [];
+  time = 0;
+  
+
   barChartOptions = { scaleShowVerticalLines: false, responsive: true};
   barChartLabels = this.label;
   barChartType = 'line';
@@ -36,6 +39,9 @@ export class ChartComponent implements OnInit, OnDestroy {
     this.getChartData();
     
   }
+  getNewChart(){
+    this.stockService.timeframeChange('AAPL', this.time)
+  };
   renderChart(){
     this.barChartLabels = this.label;
     this.barChartType = 'line';

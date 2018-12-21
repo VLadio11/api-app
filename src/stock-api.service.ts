@@ -25,15 +25,18 @@ export class StockApiService {
       this.stockNewsSubject.next(data);
     });
   }  
-  getChartData(symbol){
-    this.http.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/2y`).subscribe((data:any) =>{
+  getChartData(symbol, timeframe){
+    this.http.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${timeframe}`).subscribe((data:any) =>{
       this.stockChartSubject.next(data);
     });
   }
   loadData(stockSymbol){
     this.getStockData(stockSymbol);
     this.getStockNews(stockSymbol);
-    this.getChartData(stockSymbol);
+    this.getChartData(stockSymbol, '5y');
+  }
+  timeframeChange(symbol, timeframe){
+    this.getChartData(symbol, timeframe);
   }
 }
 interface StockData {

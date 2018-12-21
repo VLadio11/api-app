@@ -1,4 +1,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<div class="timeframes">
+  <button (click)="time='3m'" (click)="getNewChart()">3 month</button>
+  <button (click)="time='6m'" (click)="getNewChart()">6 month</button>
+  <button (click)="time='1y'" (click)="getNewChart()">1 year</button>
+  <button (click)="time='5y'" (click)="getNewChart()">5 year</button>
+</div>
 <div>
     <div style="display: block" class="bar-chart">
       <canvas baseChart
